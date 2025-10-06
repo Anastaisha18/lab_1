@@ -110,12 +110,12 @@ public class One {
         return result.toString();
     }
 
-    // Задание 3.3: Четные числа (без if)
+    // Задание 3.3: Четные числа
     public String chet(int x) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i <= x; i += 2) {
             result.append(i);
-            if (i + 2 <= x) {
+            if (i + 2 <= x) { // проверка тек числа (i + 2) на предел диапазона
                 result.append(" ");
             }
         }
@@ -130,9 +130,10 @@ public class One {
         long num = Math.abs(x);
         while (num > 0) {
             num /= 10; // Убираем последнюю цифру
-            count++;
+            count++; // увелич счётчик
         }
         return count;
+        // 123/10 = 12, 12/10 = 1,  1/10 = 0 => 3 иттерации
     }
 
     // Задание 3.7: Квадрат
@@ -155,14 +156,15 @@ public class One {
                 System.out.print('*'); // i звёзд
             }
             System.out.println();
-        }
-    }
+        } // 3 пробела + 1 звезда
+    } // 2 пробела + 2 звезды
+    // 1 пробел + 3 звезды, 0 пробелов + 4 звезды
 
     // Задание 4.1: Поиск первого вхождения
     public int findFirst(int[] arr, int x) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == x) return i;
-        }
+        } // проходим по массиву и возвращаем индекс первого совпадения
         return -1;
     }
 
@@ -170,7 +172,7 @@ public class One {
     public int maxAbs(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (Math.abs(arr[i]) > Math.abs(max)) {
+            if (Math.abs(arr[i]) > Math.abs(max)) { // сравнение модулей
                 max = arr[i];
             }
         }
@@ -178,24 +180,27 @@ public class One {
     }
     // Задание 4.5: Добавление массива в массив
     public int[] add(int[] arr, int[] ins, int pos) {
-        int[] result = new int[arr.length + ins.length];
-        for (int i = 0; i < pos; i++) {
-            result[i] = arr[i];
+        int[] result = new int[arr.length + ins.length]; // массив суммарного размера
+        for (int i = 0; i < pos; i++) { // копируем часто до позиции вставки
+            result[i] = arr[i]; // первые pos элементов исходного массива
         }
         for (int i = 0; i < ins.length; i++) {
-            result[pos + i] = ins[i];
+            result[pos + i] = ins[i]; // вставка с позиции pos
         }
         for (int i = pos; i < arr.length; i++) {
-            result[ins.length + i] = arr[i];
+            result[ins.length + i] = arr[i]; // оставшиеся элементы сдвиг
         }
         return result;
+        // Исходный: [1, 2, 3, 4]
+        // Вставка:       [9, 9] на pos=1
+        // Результат: [1, 9, 9, 2, 3, 4]
     }
 
     // Задание 4.7: Возвратный реверс
     public int[] reverseBack(int[] arr) {
         int[] result = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            result[i] = arr[arr.length - 1 - i];
+            result[i] = arr[arr.length - 1 - i]; // берём элементы с конца массива
         }
         return result;
     }
@@ -204,16 +209,18 @@ public class One {
     public int[] findAll(int[] arr, int x) {
         int count = 0;
         for (int num : arr) {
-            if (num == x) count++;
+            if (num == x) count++; // Считаем сколько раз число x встречаетсяcls
         }
 
         int[] result = new int[count];
+        // 3. Заполнение массива индексами
         int index = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == x) {
-                result[index++] = i;
+                result[index++] = i; // Сохраняем индекс, где найден элемент
             }
         }
         return result;
     }
 }
+
