@@ -11,6 +11,7 @@ public class Main {
         double x = scanner.nextDouble();
         String formatted = String.format("%.2f", one.fraction(x));
         System.out.println("Дробная часть = " + formatted);
+
         System.out.println("Задание 1.3");
         System.out.println("Введите символ: ");
         char chars = scanner.next().charAt(0);
@@ -92,15 +93,15 @@ public class Main {
 
         System.out.println("Задание 3.9: Правый треугольник");
         System.out.println("Введите высоту: ");
-        int tr = scanner.nextInt();
-        one.rightTriangle(tr);
+        int tr = scanner.nextInt(); // высота треугольника
+        one.rightTriangle(tr); // рисуем треугольник
 
         System.out.println("Введите элементы массива через пробел:");
-        String input = scanner.nextLine();
-        String[] parts = input.split(" ");
-        int[] arr = new int[parts.length];
+        String input = scanner.nextLine(); // Читаем строку с числами массива
+        String[] parts = input.split(" "); // разбиваем строку на массив строк
+        int[] arr = new int[parts.length]; // Создаем массив для чисел
         for (int i = 0; i < parts.length; i++) {
-            arr[i] = Integer.parseInt(parts[i]);
+            arr[i] = Integer.parseInt(parts[i]); // преобр строки в числа
         }
 
         System.out.println("Массив: " + Arrays.toString(arr));
@@ -114,11 +115,13 @@ public class Main {
 
         System.out.println("4.5: Вставка массива - введите элементы для вставки через пробел:");
         scanner.nextLine();
-        String insertInput = scanner.nextLine();
-        String[] insertParts = insertInput.split(" ");
-        int[] ins = new int[insertParts.length];
+        String insertInput = scanner.nextLine(); // Читаем строку с числами для вставки
+        String[] insertParts = insertInput.split(" "); // Разбиваем строку на массив
+        // преобразуем строки в целые числа
+        int[] ins = new int[insertParts.length]; // создаём новый массив
         for (int i = 0; i < insertParts.length; i++) {
-            ins[i] = Integer.parseInt(insertParts[i]);
+            ins[i] = Integer.parseInt(insertParts[i]); // кажда строка из массива преобр в число
+            //и сохраняется в ins
         }
         System.out.println("Введите позицию для вставки:");
         int pos = scanner.nextInt();
