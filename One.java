@@ -163,9 +163,10 @@ public class One {
     // Задание 4.5: Вставка массива в массив
     public int[] add(int[] arr, int[] ins, int pos) {
         int[] result = new int[arr.length + ins.length];
-        System.arraycopy(arr, 0, result, 0, pos);
-        System.arraycopy(ins, 0, result, pos, ins.length);
+        System.arraycopy(arr, 0, result, 0, pos); // копируем элементы с индекса 0 до позиции
+        System.arraycopy(ins, 0, result, pos, ins.length); // Копируем в result начиная с индекса позиции
         System.arraycopy(arr, pos, result, pos + ins.length, arr.length - pos);
+        // Копируем arr.length - pos элементы из arr начиная с индекса позиции в result начиная с индекса 6
         return result;
     }
 
@@ -173,7 +174,8 @@ public class One {
     public int[] reverseBack(int[] arr) {
         int[] result = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            result[i] = arr[arr.length - 1 - i];
+            result[i] = arr[arr.length - 1 - i]; 
+            // присваиваем индексу значение из списка
         }
         return result;
     }
@@ -185,13 +187,15 @@ public class One {
             if (num == x) count++;
         }
 
-        int[] result = new int[count];
+        int[] result = new int[count];  // Создаем массив размером count
         int index = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == x) {
-                result[index++] = i;
+                result[index] = i;
+                index++; 
             }
         }
         return result;
     }
+
 }
